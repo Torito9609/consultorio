@@ -1,0 +1,46 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+
+# Maven
+target/
+.mvn/
+dependency-reduced-pom.xml
+release.properties
+
+# Seguridad / Configs locales
+.env
+*.env
+.env.*
+*.key
+*.pem
+*.crt
+application-*.properties
+application-*.yml
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+.sts4-cache
+.vscode/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+build/
+
+# Test coverage
+jacoco.exec
+coverage-reports/
+
