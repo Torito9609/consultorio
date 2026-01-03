@@ -3,8 +3,7 @@ package com.consultorio.domain;
 import java.time.LocalDate;
 
 public class Patient extends AuditableEntityBase{
-    private Long id;
-    private User user;
+    private AppUser user;
     private LocalDate birthDate;
     private DocumentType documentType;
     private String documentNumber;

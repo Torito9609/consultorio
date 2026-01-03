@@ -1,11 +1,22 @@
 package com.consultorio.domain;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 
-public class AuditableEntityBase {
+@MappedSuperclass
+@Getter
+public abstract class AuditableEntityBase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = true)
     protected Long createdById;
-    protected Long updatedBuId;
+    @Column(nullable = true)
+    protected Long updatedById;
+    @Column(nullable = true)
     protected LocalDateTime createdAt;
+    @Column(nullable = true)
     protected LocalDateTime updatedAt;
 }
