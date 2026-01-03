@@ -1,7 +1,7 @@
 package com.consultorio.domain;
 
-public enum TipoNotificacion {
-    INTERNA,
+public enum NotificationType {
+    INTERN,
     EMAIL,
     SMS,
     WHATSAPP
