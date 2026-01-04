@@ -18,6 +18,10 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class AppUser extends AuditableEntityBase{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(nullable = false, length = 60)
     @NotBlank @Size(max = 60)
     private String name;
@@ -30,12 +34,12 @@ public class AppUser extends AuditableEntityBase{
     @NotBlank @Email @Size(max = 254)
     private String email;
 
-    @Column(nullable = false, length = 20, unique = false)
+    @Column(nullable = false, length = 20)
     @NotBlank @Size(max = 20)
-    private String phone;
+    private String phoneNumber;
 
     @Column(nullable = false, length = 255)
-    @NotNull
+    @NotBlank
     private String passwordHash;
 
     @Column(nullable = false, length = 30)
@@ -47,24 +51,4 @@ public class AppUser extends AuditableEntityBase{
     @Enumerated(EnumType.STRING)
     @NotNull
     private UserStatus userStatus;
-
-    private void updateEmail(String newEmail){
-        this.email = newEmail;
-    }
-
-    private void updatePhoneNumber(String newPhoneNumber){
-        this.phone = newPhoneNumber;
-    }
-
-    private void updatepasswordHash(String newPasswordHash){
-        this.passwordHash = newPasswordHash;
-    }
-
-    private void updateFirstName(String newFirstName){
-        this. name = newFirstName;
-    }
-
-    private void updateLastName(String newLastName){
-        this.lastName = newLastName;
-    }
 }

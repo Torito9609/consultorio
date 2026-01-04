@@ -1,13 +1,61 @@
 package com.consultorio.domain;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+@Entity
+@Table(
+        name = "patients",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_patients_document",
+                        columnNames = {"document_type", "document_number"}
+                )
+        }
+)
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Patient extends AuditableEntityBase{
+    @Id
+    private Long id;
+
+    @MapsId
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
     private AppUser user;
+
+    @Column(nullable = false)
+    @NotNull
     private LocalDate birthDate;
+
+    @Column(name = "document_type", nullable = false, length = 30)
+    @Enumerated(EnumType.STRING)
+    @NotNull
     private DocumentType documentType;
+
+    @Column(name = "document_number", nullable = false, length = 20)
+    @NotBlank
+    @Size(max = 20)
     private String documentNumber;
+
+    @Column(nullable = false, length = 150)
+    @Size(max = 150)
+    @NotBlank
     private String address;
-    private String gender;
+
+    @Column(nullable = false, length = 30)
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private Gender gender;
+
+    @Column(nullable = true, length = 20)
+    @Size(max = 20)
     private String eps;
 }

@@ -8,9 +8,6 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Getter
 public abstract class AuditableEntityBase {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(nullable = true)
     protected Long createdById;
     @Column(nullable = true)
