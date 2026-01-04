@@ -10,50 +10,18 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 @Entity
-@Table(
-        name = "patients",
-        uniqueConstraints = {
-                @UniqueConstraint(
-                        name = "uk_patients_document",
-                        columnNames = {"document_type", "document_number"}
-                )
-        }
-)
+@Table(name = "patients")
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Patient extends AuditableEntityBase{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @MapsId
     @OneToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private AppUser user;
-
-    @Column(nullable = false)
-    @NotNull
-    private LocalDate birthDate;
-
-    @Column(name = "document_type", nullable = false, length = 30)
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    private DocumentType documentType;
-
-    @Column(name = "document_number", nullable = false, length = 20)
-    @NotBlank
-    @Size(max = 20)
-    private String documentNumber;
-
-    @Column(nullable = false, length = 150)
-    @Size(max = 150)
-    @NotBlank
-    private String address;
-
-    @Column(nullable = false, length = 30)
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    private Gender gender;
+    @JoinColumn(name = "person_id", nullable = false, unique = true)
+    private Person person;
 
     @Column(nullable = true, length = 20)
     @Size(max = 20)

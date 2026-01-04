@@ -22,21 +22,13 @@ public class AppUser extends AuditableEntityBase{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 60)
-    @NotBlank @Size(max = 60)
-    private String name;
-
-    @Column(nullable = false, length = 60)
-    @NotBlank @Size(max = 60)
-    private String lastName;
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id", nullable = false, unique = true)
+    private Person person;
 
     @Column(nullable = false, length = 254)
     @NotBlank @Email @Size(max = 254)
     private String email;
-
-    @Column(nullable = false, length = 20)
-    @NotBlank @Size(max = 20)
-    private String phoneNumber;
 
     @Column(nullable = false, length = 255)
     @NotBlank

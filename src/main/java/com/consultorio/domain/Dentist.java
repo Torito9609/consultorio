@@ -9,43 +9,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(
-        name = "dentists",
-        uniqueConstraints = {
-                @UniqueConstraint(
-                        name = "uk_dentists_document",
-                        columnNames = {"document_type", "document_number"}
-                )
-        }
-)
+@Table(name = "dentists")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Dentist extends AuditableEntityBase{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @MapsId
     @OneToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private AppUser user;
+    @JoinColumn(name = "person_id", nullable = false, unique = true)
+    private Person person;
 
     @Column(nullable = false, length = 30)
     @Enumerated(EnumType.STRING)
     @NotNull
     private DentistSpecialty specialty;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 50, unique = true)
     @NotBlank
-    @Size(max = 30)
+    @Size(max = 50)
     private String registration;
-
-    @Column(name = "document_type", nullable = false, length = 30)
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    private DocumentType documentType;
-
-    @Column(name = "document_number", nullable = false, length = 20)
-    @NotBlank
-    @Size(max = 20)
-    private String documentNumber;
 }
