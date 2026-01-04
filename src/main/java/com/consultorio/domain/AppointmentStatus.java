@@ -1,9 +1,8 @@
 package com.consultorio.domain;
 
 public enum AppointmentStatus {
-    PENDING,
-    CONFIRMED,
-    IN_PROGRESS,
+    SCHEDULED,
+    NO_SHOW,
     CANCELLED,
     COMPLETED
 }

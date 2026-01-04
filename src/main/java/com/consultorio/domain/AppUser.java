@@ -30,7 +30,7 @@ public class AppUser extends AuditableEntityBase{
     @NotBlank @Email @Size(max = 254)
     private String email;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "password_hash", nullable = false, length = 255)
     @NotBlank
     private String passwordHash;
 
@@ -39,7 +39,7 @@ public class AppUser extends AuditableEntityBase{
     @NotNull
     private Role role;
 
-    @Column(nullable = false, length = 30)
+    @Column(name = "user_status", nullable = false, length = 30)
     @Enumerated(EnumType.STRING)
     @NotNull
     private UserStatus userStatus;

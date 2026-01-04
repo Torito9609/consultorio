@@ -38,15 +38,15 @@ public class Person extends AuditableEntityBase{
     @Size(max = 20)
     private String documentNumber;
 
-    @Column(nullable = false, length = 20)
+    @Column(name = "phone_number", nullable = false, length = 20)
     @NotBlank @Size(max = 20)
     private String phoneNumber;
 
-    @Column(nullable = false, length = 60)
+    @Column(name = "first_name", nullable = false, length = 60)
     @NotBlank @Size(max = 60)
-    private String name;
+    private String firstName;
 
-    @Column(nullable = false, length = 60)
+    @Column(name = "last_name", nullable = false, length = 60)
     @NotBlank @Size(max = 60)
     private String lastName;
 
@@ -60,7 +60,7 @@ public class Person extends AuditableEntityBase{
     @NotNull
     private Gender gender;
 
-    @Column(nullable = false)
+    @Column(name = "birth_date", nullable = false)
     @NotNull
     private LocalDate birthDate;
 }
