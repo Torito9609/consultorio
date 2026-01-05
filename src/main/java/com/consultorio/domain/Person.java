@@ -63,4 +63,25 @@ public class Person extends AuditableEntityBase{
     @Column(name = "birth_date", nullable = false)
     @NotNull
     private LocalDate birthDate;
+
+    public static Person create(DocumentType documentType,
+                               String documentNumber,
+                               String phoneNumber,
+                               String firstName,
+                               String lastName,
+                               String address,
+                               Gender gender,
+                               LocalDate birthDate){
+        Person p =  new Person();
+        p.documentType = documentType;
+        p.documentNumber = documentNumber.trim();
+        p.phoneNumber = phoneNumber.trim();
+        p.firstName = firstName.trim();
+        p.lastName = lastName.trim();
+        p.address = address.trim();
+        p.gender = gender;
+        p.birthDate = birthDate;
+
+        return p;
+    }
 }
