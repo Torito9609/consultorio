@@ -1,4 +1,10 @@
 package com.consultorio.dto.appointment;
 
-public class AppointmentRescheduleRequest {
-}
+import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDateTime;
+
+public record AppointmentRescheduleRequest(
+        @NotNull LocalDateTime startAt,
+        @NotNull LocalDateTime endAt
+) {}
