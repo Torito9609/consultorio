@@ -4,7 +4,7 @@ import com.consultorio.dto.person.PersonResponse;
 import jakarta.validation.constraints.NotNull;
 
 public record PatientResponse(
-       @NotNull Long id,
+       Long id,
        PersonResponse person,
        String eps
 ) {}
