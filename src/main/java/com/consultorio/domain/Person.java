@@ -84,4 +84,28 @@ public class Person extends AuditableEntityBase{
 
         return p;
     }
+
+    public void changePhoneNumber(String phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void changeFirstName(String firstName){
+        this.firstName = firstName;
+    }
+
+    public void changeLastName(String lastName){
+        this.lastName = lastName;
+    }
+
+    public void changeAddress(String address){
+        this.address = address;
+    }
+
+    public void changeGender(Gender gender){
+        this.gender = gender;
+    }
+
+    public void changeBirthDate(LocalDate birthDate){
+        this.birthDate = birthDate;
+    }
 }
