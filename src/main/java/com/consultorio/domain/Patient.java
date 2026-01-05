@@ -2,6 +2,7 @@ package com.consultorio.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,5 +24,6 @@ public class Patient extends AuditableEntityBase{
     @Column(nullable = false, length = 30)
     @Enumerated(EnumType.STRING)
     @NotNull
+    @Size(max = 30)
     private Eps eps;
 }

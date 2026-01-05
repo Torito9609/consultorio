@@ -11,18 +11,11 @@ import java.time.LocalDate;
 
 public record PersonCreateRequest(
     @NotNull DocumentType documentType,
-
     @NotBlank @Size(max = 20) String documentNumber,
-
     @NotBlank @Size(max = 20) String phoneNumber,
-
     @NotBlank @Size(max = 60) String firstName,
-
     @NotBlank @Size(max = 60) String lastName,
-
     @NotBlank @Size(max = 150) String address,
-
     @NotNull Gender gender,
-
     @NotNull LocalDate birthDate
 ) {}
