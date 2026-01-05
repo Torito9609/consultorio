@@ -5,14 +5,12 @@ import com.consultorio.dto.person.PersonCreateRequest;
 import com.consultorio.dto.person.PersonResponse;
 import com.consultorio.dto.person.PersonUpdateRequest;
 
-import java.util.Objects;
-
 public final class PersonMapper {
     private PersonMapper(){}
 
     public static Person toEntity(PersonCreateRequest req){
-
-        return Person.create(req.documentType(),
+        return Person.create(
+                        req.documentType(),
                         req.documentNumber(),
                         req.phoneNumber(),
                         req.firstName(),
@@ -32,7 +30,16 @@ public final class PersonMapper {
     }
 
     public static PersonResponse toResponse(Person p){
-
-        return
+        return new PersonResponse(
+                p.getId(),
+                p.getDocumentType(),
+                p.getDocumentNumber(),
+                p.getPhoneNumber(),
+                p.getFirstName(),
+                p.getLastName(),
+                p.getAddress(),
+                p.getGender(),
+                p.getBirthDate()
+        );
     }
 }
