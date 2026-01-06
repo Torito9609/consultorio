@@ -37,7 +37,7 @@ public class Appointment {
     @Column(name = "appointment_status", nullable = false, length = 30)
     @Enumerated(EnumType.STRING)
     @NotNull
-    private AppointmentStatus appointmentStatus;
+    private AppointmentStatus status;
 
     @Column(nullable = false, length = 250)
     @NotBlank
@@ -49,4 +49,37 @@ public class Appointment {
 
     @Column(name = "cancel_reason", length = 255)
     private String cancelReason;
+
+    public static Appointment create(
+            Patient patient,
+            Dentist dentist,
+            LocalDateTime startAt,
+            LocalDateTime endAt,
+            String reason
+    )
+    {
+            Appointment a = new Appointment();
+            a.patient = patient;
+            a.dentist = dentist;
+            a.startAt = startAt;
+            a.endAt = endAt;
+            a.reason = reason;
+            a.status = AppointmentStatus.SCHEDULED;
+            a.cancelledAt = null;
+            a.cancelReason = null;
+
+            return a;
+    }
+
+    public void reschedule(LocalDateTime startAt, LocalDateTime endAt){
+        this.startAt = startAt;
+        this.endAt = endAt;
+    }
+
+    public void cancel(String cancelReason, LocalDateTime cancelledAt){
+        this.status = AppointmentStatus.CANCELLED;
+        this.cancelledAt = cancelledAt;
+        this.cancelReason = cancelReason;
+    }
+
 }
