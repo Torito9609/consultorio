@@ -26,4 +26,15 @@ public class Patient extends AuditableEntityBase{
     @NotNull
     @Size(max = 30)
     private Eps eps;
+
+    public static Patient create(Person person, Eps eps){
+        Patient p = new Patient();
+        p.person = person;
+        p.eps = eps;
+        return p;
+    }
+
+    public void changeEps(Eps eps){
+        this.eps = eps;
+    }
 }
