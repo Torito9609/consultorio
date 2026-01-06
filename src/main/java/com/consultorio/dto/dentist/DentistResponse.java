@@ -6,6 +6,5 @@ import com.consultorio.dto.person.PersonResponse;
 public record DentistResponse(
         Long id,
         PersonResponse person,
-        DentistSpecialty specialty,
-        String registration
+        DentistSpecialty specialty
 ) {}

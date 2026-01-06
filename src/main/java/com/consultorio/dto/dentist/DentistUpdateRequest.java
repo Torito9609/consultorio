@@ -6,6 +6,5 @@ import jakarta.validation.constraints.Size;
 
 public record DentistUpdateRequest(
         PersonUpdateRequest person,
-        DentistSpecialty specialty,
-        @Size(max = 50) String registration
+        DentistSpecialty specialty
 ) {}

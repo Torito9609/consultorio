@@ -30,4 +30,16 @@ public class Dentist extends AuditableEntityBase{
     @NotBlank
     @Size(max = 50)
     private String registration;
+
+    public static Dentist create(Person person, DentistSpecialty specialty, String registration){
+        Dentist d = new Dentist();
+        d.person = person;
+        d.specialty = specialty;
+        d.registration = registration;
+        return d;
+    }
+
+    public void changeSpecialty(DentistSpecialty specialty){
+        this.specialty = specialty;
+    }
 }
