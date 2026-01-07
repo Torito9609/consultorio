@@ -7,7 +7,7 @@ import com.consultorio.dto.dentist.DentistResponse;
 import com.consultorio.dto.dentist.DentistSummaryResponse;
 import com.consultorio.dto.dentist.DentistUpdateRequest;
 import com.consultorio.mapper.person.PersonMapper;
-import com.consultorio.projection.DentistSummaryResponseProjection;
+import com.consultorio.repository.projection.DentistSummaryResponseProjection;
 
 public final class DentistMapper {
     private DentistMapper(){}

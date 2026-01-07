@@ -4,8 +4,8 @@ import com.consultorio.domain.Appointment;
 import com.consultorio.domain.Dentist;
 import com.consultorio.domain.Patient;
 import com.consultorio.dto.appointment.*;
-import com.consultorio.projection.AppointmentDetailsProjection;
-import com.consultorio.projection.AppointmentSummaryProjection;
+import com.consultorio.repository.projection.AppointmentDetailsProjection;
+import com.consultorio.repository.projection.AppointmentSummaryProjection;
 
 import java.time.LocalDateTime;
 

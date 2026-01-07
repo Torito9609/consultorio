@@ -7,7 +7,7 @@ import com.consultorio.dto.patient.PatientResponse;
 import com.consultorio.dto.patient.PatientSummaryResponse;
 import com.consultorio.dto.patient.PatientUpdateRequest;
 import com.consultorio.mapper.person.PersonMapper;
-import com.consultorio.projection.PatientSummaryProjection;
+import com.consultorio.repository.projection.PatientSummaryProjection;
 
 public final class PatientMapper {
     private PatientMapper(){}

@@ -1,4 +1,4 @@
-package com.consultorio.projection;
+package com.consultorio.repository.projection;
 
 import com.consultorio.domain.DocumentType;
 
