@@ -28,11 +28,11 @@ Practicar desarrollo backend con enfoque en buenas prácticas:
 ### Opción A — PostgreSQL con Docker (recomendado)
 > Si aún no tienes `docker-compose.yml`, puedes crear uno o levantar Postgres manualmente.
 
-1. Levanta PostgreSQL (Docker)
-2. ## Configuración (sin credenciales hardcoded)
+### 1. Levanta PostgreSQL (Docker)
+### 2.  Configuración (sin credenciales hardcoded)
 Este proyecto **no** almacena credenciales en `application.properties`. La configuración se maneja por **variables de entorno** (por ejemplo, desde IntelliJ) y/o al levantar PostgreSQL en Docker.
 
-### Variables de entorno (ejemplo)
+#### Variables de entorno (ejemplo)
 Configura las variables en tu entorno o en la configuración de ejecución del IDE:
 
 - DB_URL
@@ -40,9 +40,9 @@ Configura las variables en tu entorno o en la configuración de ejecución del I
 - DB_PASSWORD
 
 
-3. ## Cómo ejecutar
+### 3. Cómo ejecutar
 
-### 1) Base de datos con Docker (PostgreSQL)
+#### 1) Base de datos con Docker (PostgreSQL)
 Puedes levantar PostgreSQL pasando credenciales por variables de entorno:
 
 ```bash
@@ -53,12 +53,12 @@ docker run --name consultorio-postgres \
   -p 5432:5432 \
   -d postgres
 ```
-4. ## Ejecuta la app:
+### Ejecuta la app:
 ```bash
 ./mvnw spring-boot:run
 ```
 
-## Pruebas
+### Pruebas
 
 Las pruebas se ejecutan con JUnit 5. Actualmente se están trabajando primero pruebas de repositorios y luego servicios.
 ```bash
